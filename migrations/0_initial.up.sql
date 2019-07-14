@@ -29,15 +29,8 @@ CREATE TABLE dough_you.foods
 
 CREATE TABLE dough_you.tags
 (
-    uuid uuid PRIMARY KEY,
-    name VARCHAR NOT NULL
-
-);
-
-CREATE TABLE dough_you.foods_tags
-(
-    food_uuid uuid NOT NULL REFERENCES dough_you.users (uuid) ON DELETE CASCADE,
-    tag_uuid  uuid NOT NULL REFERENCES dough_you.tags (uuid) ON DELETE CASCADE
+    food_uuid uuid    NOT NULL REFERENCES dough_you.foods (uuid) ON DELETE CASCADE,
+    name      VARCHAR NOT NULL
 );
 
 CREATE TABLE dough_you.users_foods
@@ -47,8 +40,9 @@ CREATE TABLE dough_you.users_foods
 );
 
 CREATE UNIQUE INDEX users_email_pw_index ON dough_you.users (email, password);
-CREATE UNIQUE INDEX users_foods_tags_index ON dough_you.foods_tags (food_uuid, tag_uuid);
 CREATE UNIQUE INDEX users_users_foods_index ON dough_you.users_foods (user_uuid, food_uuid);
+CREATE UNIQUE INDEX tags_index ON dough_you.tags (name, food_uuid);
+
 
 INSERT INTO dough_you.users(uuid, first_name, last_name, email,
                             password, bio, state, city, school,
