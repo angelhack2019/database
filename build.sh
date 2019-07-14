@@ -11,8 +11,6 @@ docker build \
 --build-arg db_name=dough_you \
 -t doughyou/db:latest .
 
-# docker login
-docker login -u $docker_user --password $docker_password
 
 # push an image or a repo to a registry
 # docker push [OPTIONS] NAME[:TAG]
