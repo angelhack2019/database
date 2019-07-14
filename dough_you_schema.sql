@@ -21,10 +21,10 @@ CREATE TABLE dough_you.users
 
 CREATE TABLE dough_you.foods
 (
-    uuid        uuid PRIMARY KEY,
-    pic_url     TEXT        NOT NULL,
-    exp_date    timestamptz NOT NULL,
-    create_date timestamptz NOT NULL
+    uuid         uuid PRIMARY KEY,
+    pic_url      TEXT        NOT NULL,
+    exp_date     timestamptz NOT NULL,
+    created_date timestamptz NOT NULL
 );
 
 CREATE TABLE dough_you.tags
