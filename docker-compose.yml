@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  doughyou-pg:
+    image: "doughyou/db"
+    container_name: "doughyou-pg"
+    ports:
+      - 5432:5432
